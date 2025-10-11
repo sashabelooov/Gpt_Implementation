@@ -23,7 +23,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-SITE_ID = 3
+SITE_ID = 1
 
 INSTALLED_APPS = [
     'jazzmin',
@@ -73,7 +73,7 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 
-
+AUTH_USER_MODEL = 'home.CustomUser'
 
 MIDDLEWARE = [
     "allauth.account.middleware.AccountMiddleware",

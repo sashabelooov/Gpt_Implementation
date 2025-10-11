@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="uz">
 <head>
@@ -21,7 +20,6 @@
             gap: 20px;
             box-sizing: border-box;
         }
-
         .top-bar {
             position: fixed;
             top: 20px;
@@ -31,7 +29,56 @@
             gap: 16px;
             z-index: 1000;
         }
-
+        .top-right-buttons {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        .login-btn, .register-btn {
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        .login-btn {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+        .login-btn:hover {
+            background-color: white;
+            color: #1e1e1e;
+        }
+        .register-btn {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .register-btn:hover {
+            background-color: #60a5fa;
+        }
+        .private-chat-icon {
+            width: 38px;
+            height: 38px;
+            background-color: #333333;
+            border: 1px solid #4a4a4e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .private-chat-icon:hover {
+            background-color: #4a4a4e;
+        }
+        .private-chat-icon i {
+            color: white;
+            font-size: 18px;
+        }
         .button-group {
             display: flex;
             align-items: center;
@@ -40,7 +87,6 @@
             padding: 4px;
             border: 1px solid #4a4a4e;
         }
-
         .icon-btn {
             display: flex;
             align-items: center;
@@ -53,15 +99,12 @@
             cursor: pointer;
             transition: background-color 0.2s ease;
         }
-
         .icon-btn:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
-
         .icon-btn svg {
             stroke: #e0e0e0;
         }
-
         .sidebar {
             position: fixed;
             top: 0;
@@ -79,11 +122,9 @@
             z-index: 1000;
             overflow-y: auto;
         }
-
         .sidebar.show {
             left: 0;
         }
-
         .sidebar-header {
             display: flex;
             justify-content: space-between;
@@ -92,21 +133,17 @@
             padding-bottom: 15px;
             margin-bottom: 20px;
         }
-
         .sidebar-header h3 {
             margin: 0;
         }
-
         .sidebar-nav {
             list-style: none;
             padding: 0;
             margin: 0 0 20px 0;
         }
-
         .sidebar-nav li {
             margin-bottom: 8px;
         }
-
         .sidebar-nav a {
             display: flex;
             align-items: center;
@@ -118,28 +155,23 @@
             transition: background-color 0.2s;
             font-size: 14px;
         }
-
         .sidebar-nav a:hover {
             background-color: #333333;
         }
-
         .sidebar-nav i {
             width: 20px;
             text-align: center;
         }
-
         .recents-section {
             border-top: 1px solid #4a4a4e;
             padding-top: 20px;
             margin-top: 20px;
         }
-
         .recents-section h4 {
             margin: 0 0 12px 0;
             font-size: 14px;
             color: #a0a0a0;
         }
-
         .recent-chat {
             display: block;
             color: #d1d1d1;
@@ -149,11 +181,9 @@
             font-size: 14px;
             transition: background-color 0.2s;
         }
-
         .recent-chat:hover {
             background-color: #333333;
         }
-
         .user-profile {
             margin-top: auto;
             padding-top: 20px;
@@ -164,8 +194,12 @@
             padding: 12px;
             border-radius: 8px;
             background-color: #333333;
+            position: relative;
+            cursor: pointer;
         }
-
+        .user-profile:hover .user-dropdown {
+            display: block;
+        }
         .user-avatar {
             width: 32px;
             height: 32px;
@@ -175,8 +209,29 @@
             align-items: center;
             justify-content: center;
             font-size: 16px;
+            object-fit: cover;
         }
-
+        .user-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #333333;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            min-width: 120px;
+            z-index: 10;
+        }
+        .user-dropdown a {
+            display: block;
+            color: #d1d1d1;
+            text-decoration: none;
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+        .user-dropdown a:hover {
+            background-color: #4a4a4e;
+        }
         .chat-container {
             width: 100%;
             max-width: 800px;
@@ -189,7 +244,6 @@
             flex-grow: 1;
             margin-bottom: auto;
         }
-
         .message {
             display: flex;
             max-width: 70%;
@@ -197,19 +251,16 @@
             border-radius: 18px;
             word-wrap: break-word;
         }
-
         .user-message {
             align-self: flex-end;
             background-color: #3b82f6;
             color: white;
         }
-
         .ai-message {
             align-self: flex-start;
             background-color: #333333;
             color: white;
         }
-
         .chat-input-area {
             background-color: #2b2b2b;
             border-radius: 24px;
@@ -224,7 +275,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             position: relative;
         }
-
         .text-input {
             width: 100%;
             min-height: 48px;
@@ -242,36 +292,30 @@
             scrollbar-width: none;
             overflow-y: auto;
         }
-
         .text-input::-webkit-scrollbar {
             display: none;
         }
-
         .bottom-controls {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
         .button-group-left {
             display: flex;
             align-items: center;
             gap: 8px;
             position: relative;
         }
-
         .button-group-right {
             display: flex;
             align-items: center;
             gap: 8px;
             position: relative;
         }
-
         .dropdown-container {
             position: relative;
             display: inline-block;
         }
-
         .dropdown {
             position: absolute;
             bottom: calc(100% + 8px);
@@ -287,13 +331,11 @@
             transform: translateY(10px);
             transition: opacity 0.2s ease, transform 0.2s ease;
         }
-
         .dropdown.show-dropdown {
             opacity: 1;
             pointer-events: all;
             transform: translateY(0);
         }
-
         .dropdown-item {
             padding: 10px 16px;
             cursor: pointer;
@@ -301,11 +343,9 @@
             font-size: 14px;
             white-space: nowrap;
         }
-
         .dropdown-item:hover {
             background-color: #4a4a4e;
         }
-
         .control-btn {
             width: 38px;
             height: 38px;
@@ -318,28 +358,23 @@
             transition: background-color 0.2s ease;
             border-radius: 12px;
         }
-
         .control-btn:hover {
             background-color: #5a5a5e;
         }
-
         .control-btn svg {
             fill: white;
             stroke: white;
             stroke-width: 1.5;
         }
-
         .control-btn i {
             color: white;
             font-size: 18px;
         }
-
         .control-btn img {
             width: 22px;
             height: 22px;
             filter: invert(1);
         }
-
         .model-select-btn {
             background: transparent;
             border: none;
@@ -354,31 +389,25 @@
             transition: background-color 0.2s ease;
             position: relative;
         }
-
         .model-select-btn:hover {
             background-color: #4a4a4e;
         }
-
         .model-select-btn svg {
             stroke: #d1d1d1;
         }
-
         .send-btn {
             background-color: #3b82f6;
             border-radius: 50%;
             width: 48px;
             height: 48px;
         }
-
         .send-btn:hover {
             background-color: #60a5fa;
         }
-
         .extra-buttons-input {
             display: flex;
             gap: 8px;
         }
-
         .extra-btn {
             display: flex;
             align-items: center;
@@ -393,29 +422,24 @@
             background-color: #4a4a4e;
             color: #d1d1d1;
         }
-
         .extra-btn.active {
             background-color: #3b82f6;
             border-color: #3b82f6;
             color: white;
         }
-
         .extra-btn:hover {
             background-color: #3b82f6;
             border-color: #3b82f6;
             color: white;
         }
-
         .extra-btn img {
             width: 20px;
             height: 20px;
             filter: invert(1);
         }
-
         .extra-btn.active img {
             filter: none;
         }
-
         .logo-and-text {
             display: flex;
             flex-direction: row;
@@ -423,7 +447,6 @@
             gap: 12px;
             margin: 0 0 20px 0;
         }
-
         .logo {
             width: 38px;
             height: 38px;
@@ -431,121 +454,99 @@
             align-items: center;
             justify-content: center;
         }
-
         .logo svg {
             width: 100%;
             height: 100%;
         }
-
         .welcome-text {
             font-size: 32px;
             font-weight: 500;
             margin: 0;
             color: #e0e0e0;
         }
-
         /* Responsive styles */
         @media (max-width: 1024px) {
             .chat-container {
                 height: 300px;
             }
         }
-
         @media (max-width: 768px) {
             body {
                 padding: 10px;
                 gap: 10px;
             }
-
-            .top-bar {
+            .top-bar, .top-right-buttons {
                 top: 10px;
                 left: 10px;
+                right: 10px;
                 gap: 8px;
             }
-
             .sidebar {
                 width: 100%;
                 left: -100%;
             }
-
             .logo-and-text .welcome-text {
                 font-size: 24px;
             }
-
             .chat-container {
                 height: 250px;
                 padding: 10px 0;
             }
-
             .message {
                 max-width: 85%;
             }
-
             .extra-buttons-input {
                 flex-direction: column;
                 gap: 4px;
             }
-
             .extra-btn {
                 padding: 6px 12px;
                 font-size: 12px;
             }
-
             .bottom-controls {
                 flex-wrap: wrap;
                 gap: 8px;
             }
         }
-
         @media (max-width: 480px) {
             .logo-and-text .welcome-text {
                 font-size: 20px;
             }
-
             .chat-input-area {
                 padding: 12px;
                 border-radius: 20px;
             }
-
             .text-input {
                 font-size: 16px; /* Prevent zoom on iOS */
             }
-
             .button-group-left {
                 flex-wrap: wrap;
                 gap: 4px;
             }
-
             .button-group-right {
                 flex-wrap: wrap;
                 gap: 4px;
             }
-
             .control-btn {
                 width: 32px;
                 height: 32px;
                 border-radius: 50%;
             }
-
             .control-btn i {
                 font-size: 16px;
             }
-
             .control-btn img {
                 width: 18px;
                 height: 18px;
             }
-
             .send-btn {
                 width: 40px;
                 height: 40px;
                 border-radius: 50%;
             }
-
             .send-btn i {
                 font-size: 16px;
             }
-
             .model-select-btn {
                 padding: 6px 8px;
                 font-size: 12px;
@@ -553,12 +554,10 @@
                 min-width: 80px;
                 justify-content: center;
             }
-
             .model-select-btn svg {
                 width: 10px;
                 height: 10px;
             }
-
             .extra-btn {
                 padding: 4px 8px;
                 font-size: 11px;
@@ -567,17 +566,14 @@
                 justify-content: center;
                 gap: 4px;
             }
-
             .extra-btn img {
                 width: 16px;
                 height: 16px;
             }
-
             .bottom-controls {
                 justify-content: center;
                 gap: 6px;
             }
-
             .extra-btn {
                 width: 32px;
                 height: 32px;
@@ -589,15 +585,22 @@
                 font-size: 0;
                 min-width: auto;
             }
-
             .extra-btn img {
                 width: 18px;
                 height: 18px;
             }
-
             .extra-buttons-input {
                 flex-direction: row;
                 gap: 4px;
+            }
+            .top-right-buttons {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .login-btn, .register-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+                text-align: center;
             }
         }
     </style>
@@ -627,7 +630,18 @@
             </button>
         </div>
     </div>
-
+    {% if not user.is_authenticated %}
+    <div class="top-right-buttons">
+        <a href="{% url 'login' %}" class="login-btn">Login</a>
+        <a href="{% url 'register' %}" class="register-btn">Register</a>
+    </div>
+    {% else %}
+    <div class="top-right-buttons">
+        <div class="private-chat-icon">
+            <i class="fas fa-comments"></i>
+        </div>
+    </div>
+    {% endif %}
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <h3>Menyu</h3>
@@ -645,22 +659,31 @@
             <li><a href="#"><i class="fas fa-project-diagram"></i> Projects</a></li>
             <li><a href="#"><i class="fas fa-puzzle-piece"></i> Extensions</a></li>
         </ul>
+        {% if user.is_authenticated %}
         <div class="recents-section">
             <h4>Recents</h4>
-            <a href="#" class="recent-chat">Nav bar spacing and layout design</a>
-            <a href="#" class="recent-chat">Nav bar logo placement</a>
-            <a href="#" class="recent-chat">Django content view and model</a>
-            <a href="#" class="recent-chat">HTML page layout styling</a>
-            <a href="#" class="recent-chat">Sidebar navigation with icons</a>
-            <a href="#" class="recent-chat">Greeting</a>
-            <a href="#" class="recent-chat">Untitled</a>
+            {% for chat in user.chats.all %}
+            <a href="#" class="recent-chat">{{ chat.title|default:"Untitled" }}</a>
+            {% empty %}
+            <a href="#" class="recent-chat">No chats yet</a>
+            {% endfor %}
         </div>
         <div class="user-profile">
-            <div class="user-avatar">S</div>
-            <span>Sascha Belov</span>
+            {% if user.profile_image %}
+            <img src="{{ user.profile_image.url }}" alt="Profile" class="user-avatar">
+            {% else %}
+            <div class="user-avatar">
+                {{ user.email|first|upper }}
+            </div>
+            {% endif %}
+            <span>{{ user.email }}</span>
+            <div class="user-dropdown">
+                <a href="#">Settings</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            </div>
         </div>
+        {% endif %}
     </div>
-
     <div class="logo-and-text" id="welcomeSection">
         <div class="logo">
             <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -670,9 +693,7 @@
         </div>
         <h2 class="welcome-text">How can I help you today?</h2>
     </div>
-
     <div class="chat-container" id="chatContainer"></div>
-
     <div class="chat-input-area">
         <textarea class="text-input" placeholder="How can I help you today?" id="textInput"></textarea>
         <div class="bottom-controls">
@@ -729,7 +750,6 @@
             </div>
         </div>
     </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const openMenuBtn = document.getElementById('openMenuBtn');
@@ -750,21 +770,17 @@
             const deepThinkBtn = document.getElementById('deepThinkBtn');
             const searchBtn = document.getElementById('searchBtn');
             const dropdowns = [uploadDropdown, slidersDropdown, modelDropdown];
-
             function autoResizeTextArea() {
                 textArea.style.height = 'auto';
                 textArea.style.height = textArea.scrollHeight + 'px';
             }
-
             textArea.addEventListener('input', autoResizeTextArea);
-
             function startNewChat() {
                 chatContainer.innerHTML = '';
                 chatContainer.style.display = 'none';
                 welcomeSection.style.display = 'flex';
                 body.style.justifyContent = 'center';
             }
-
             function loadChat(title) {
                 chatContainer.innerHTML = '';
                 const aiMsg = document.createElement('div');
@@ -775,7 +791,6 @@
                 welcomeSection.style.display = 'none';
                 body.style.justifyContent = 'flex-start';
             }
-
             document.querySelectorAll('.sidebar-nav a, .recent-chat').forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -788,19 +803,15 @@
                     }
                 });
             });
-
             openMenuBtn.addEventListener('click', () => {
                 sidebar.classList.toggle('show');
             });
-
             closeMenuBtn.addEventListener('click', () => {
                 sidebar.classList.remove('show');
             });
-
             newChatBtn.addEventListener('click', () => {
                 startNewChat();
             });
-
             function sendMessage() {
                 const message = textArea.value.trim();
                 if (message) {
@@ -809,18 +820,14 @@
                     userMsg.className = 'message user-message';
                     userMsg.textContent = message;
                     chatContainer.appendChild(userMsg);
-
                     textArea.value = '';
                     autoResizeTextArea();
-
                     if (wasEmpty) {
                         welcomeSection.style.display = 'none';
                         chatContainer.style.display = 'flex';
                         body.style.justifyContent = 'space-between';
                     }
-
                     chatContainer.scrollTop = chatContainer.scrollHeight;
-
                     // Simulate AI response with typing effect
                     setTimeout(() => {
                         const aiMsg = document.createElement('div');
@@ -828,7 +835,6 @@
                         aiMsg.textContent = '';
                         chatContainer.appendChild(aiMsg);
                         chatContainer.scrollTop = chatContainer.scrollHeight;
-
                         const responseText = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.';
                         let index = 0;
                         const typingInterval = setInterval(() => {
@@ -843,7 +849,6 @@
                     }, 500);
                 }
             }
-
             sendBtn.addEventListener('click', sendMessage);
             textArea.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' && !e.shiftKey) {
@@ -851,7 +856,6 @@
                     sendMessage();
                 }
             });
-
             function closeAllDropdowns() {
                 dropdowns.forEach(dropdown => {
                     dropdown.classList.remove('show-dropdown');
@@ -860,7 +864,6 @@
                 slidersBtn.setAttribute('aria-expanded', 'false');
                 modelSelectBtn.setAttribute('aria-expanded', 'false');
             }
-
             function toggleDropdown(button, dropdown) {
                 const isExpanded = dropdown.classList.contains('show-dropdown');
                 closeAllDropdowns();
@@ -869,39 +872,32 @@
                     button.setAttribute('aria-expanded', 'true');
                 }
             }
-
             uploadBtn.addEventListener('click', (event) => {
                 event.stopPropagation();
                 toggleDropdown(uploadBtn, uploadDropdown);
             });
-
             slidersBtn.addEventListener('click', (event) => {
                 event.stopPropagation();
                 toggleDropdown(slidersBtn, slidersDropdown);
             });
-
             modelSelectBtn.addEventListener('click', (event) => {
                 event.stopPropagation();
                 toggleDropdown(modelSelectBtn, modelDropdown);
             });
-
             document.addEventListener('click', (event) => {
                 if (!event.target.closest('.dropdown-container')) {
                     closeAllDropdowns();
                 }
             });
-
             document.querySelectorAll('.dropdown-item').forEach(item => {
                 item.addEventListener('click', () => {
                     closeAllDropdowns();
                 });
             });
-
             // Allow both DeepThink and Search to be active independently
             deepThinkBtn.addEventListener('click', () => {
                 deepThinkBtn.classList.toggle('active');
             });
-
             searchBtn.addEventListener('click', () => {
                 searchBtn.classList.toggle('active');
             });
