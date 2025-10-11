@@ -197,11 +197,6 @@
             position: relative;
             cursor: pointer;
         }
-        .user-profile:hover .user-dropdown {
-            opacity: 1;
-            pointer-events: all;
-            transform: translateY(0);
-        }
         .user-avatar {
             width: 32px;
             height: 32px;
@@ -228,6 +223,11 @@
             z-index: 10;
             transform: translateY(-10px);
             transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .user-dropdown.show {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(0);
         }
         .user-dropdown a {
             display: block;
@@ -686,7 +686,10 @@
             <span>{{ user.email }}</span>
             <div class="user-dropdown">
                 <a href="#">Settings</a>
-                <a href="{% url 'logout' %}">Logout</a>
+                <form method="post" action="{% url 'logout' %}" style="margin:0;">
+                    {% csrf_token %}
+                    <button type="submit" style="background:none;border:none;color:#d1d1d1;text-decoration:none;padding:8px 12px;font-size:14px;width:100%;text-align:left;cursor:pointer;">Logout</button>
+                </form>
             </div>
         </div>
         {% endif %}
@@ -777,6 +780,8 @@
             const deepThinkBtn = document.getElementById('deepThinkBtn');
             const searchBtn = document.getElementById('searchBtn');
             const dropdowns = [uploadDropdown, slidersDropdown, modelDropdown];
+            const userProfile = document.querySelector('.user-profile');
+            const userDropdown = document.querySelector('.user-dropdown');
             function autoResizeTextArea() {
                 textArea.style.height = 'auto';
                 textArea.style.height = textArea.scrollHeight + 'px';
@@ -891,9 +896,18 @@
                 event.stopPropagation();
                 toggleDropdown(modelSelectBtn, modelDropdown);
             });
+            if (userProfile && userDropdown) {
+                userProfile.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    userDropdown.classList.toggle('show');
+                });
+            }
             document.addEventListener('click', (event) => {
-                if (!event.target.closest('.dropdown-container')) {
+                if (!event.target.closest('.dropdown-container') && (!userProfile || !event.target.closest('.user-profile'))) {
                     closeAllDropdowns();
+                    if (userDropdown) {
+                        userDropdown.classList.remove('show');
+                    }
                 }
             });
             document.querySelectorAll('.dropdown-item').forEach(item => {
